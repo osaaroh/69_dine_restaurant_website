@@ -1,0 +1,65 @@
+.hero {
+width: 100%;
+background-image: url('../../public/images/homepage/hero-bg-desktop@2x.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+}
+
+nav{
+    margin-top: 4rem;
+}
+
+nav, .hero-container{
+    max-width: 1440px;
+    padding: 0 4rem;
+}
+
+.hero-container{
+    color: var(--color-white);
+    margin: 10rem 0 2rem 0;
+}
+
+.hero-container h1 {
+  font-size: 4rem;
+    font-weight: var(--weight-light);
+  margin-bottom: 0.5rem;
+}
+.hero-container p {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  font-weight: var(--weight-light);
+}
+
+.hero-container h1,
+.hero-container p {
+  line-height: 1.5;
+}
+
+.hero-container__text{
+    max-width: 60%;
+}
+
+.hero-container button {
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    font-weight: var(--weight-light);
+  color: var(--color-white);
+  padding: 1.5rem 2.5rem;
+  border: 1px solid var(--color-white);
+  background: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.hero-container button:hover {
+  background-color: var(--color-white);
+    color: var(--color-cod-gray);
+}
+.hero-container button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-beaver);
+}

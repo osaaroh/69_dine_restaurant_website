@@ -33,10 +33,13 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f0f0f0;
+  /* background-color: #f0f0f0; */
+  background: var(--color-cod-gray);
   font-family: 'League Spartan', sans-serif;
 }
 body {
-
+  background: var(--color-cod-gray);
+  width: 100%;
+  color: var(--color-white);
 }
 
