@@ -43,3 +43,12 @@ body {
   color: var(--color-white);
 }
 
+.wrapper{
+    max-width: 1200px;
+    padding: 0 4rem;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+}

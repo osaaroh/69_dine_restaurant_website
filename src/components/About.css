@@ -1,0 +1,41 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    gap: 2rem;
+    padding-bottom: 4rem;
+}
+
+.wrapper_flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper img{
+    max-width: 500px;
+    margin-top: -2.5rem;
+}
+
+.wrapper .text{
+    align-self: center;
+    max-width: 400px;
+}
+
+.wrapper .text h2{
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+    /* color: var(--color-shuttle-gray); */
+    font-weight: 700;
+}
+.wrapper .text p{
+    font-size: 1.125rem;
+    line-height: 1.875rem;
+    /* color: var(--color-shuttle-gray); */
+    font-weight: 400;
+}
+
+.container-white-bg{
+    background: var(--color-white);
+    color: var(--color-cod-gray);
+}

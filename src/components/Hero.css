@@ -5,22 +5,26 @@ background-size: cover;
 background-repeat: no-repeat;
 min-height: 100vh;
 display: flex;
-flex-direction: column;
-align-items: flex-start;
+justify-content: center;}
+
+nav, .hero-container{
+    max-width: 1200px;
+    display: flex;
+    width: 100%;
 }
 
 nav{
-    margin-top: 4rem;
-}
-
-nav, .hero-container{
-    max-width: 1440px;
-    padding: 0 4rem;
+    justify-content: flex-start;
+    margin: 4rem 0;
 }
 
 .hero-container{
     color: var(--color-white);
     margin: 10rem 0 2rem 0;
+    padding: 0 4rem;
+}
+.hero-container {
+    flex-direction: column;
 }
 
 .hero-container h1 {
