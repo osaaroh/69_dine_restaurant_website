@@ -1,6 +1,6 @@
 .hero {
 width: 100%;
-background-image: url('../../public/images/homepage/hero-bg-desktop@2x.jpg');
+background-image: url('./images/homepage/hero-bg-desktop@2x.jpg');
 background-size: cover;
 background-repeat: no-repeat;
 min-height: 100vh;
@@ -21,7 +21,7 @@ nav{
 .hero-container{
     color: var(--color-white);
     margin: 10rem 0 2rem 0;
-    padding: 0 4rem;
+    padding: 0 4rem 4rem 4rem;
 }
 .hero-container {
     flex-direction: column;
@@ -48,16 +48,9 @@ nav{
 }
 
 .hero-container button {
-    text-transform: uppercase;
-    letter-spacing: 0.15rem;
-    font-weight: var(--weight-light);
   color: var(--color-white);
-  padding: 1.5rem 2.5rem;
   border: 1px solid var(--color-white);
   background: none;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all var(--transition);
 }
 .hero-container button:hover {
   background-color: var(--color-white);

@@ -12,15 +12,19 @@
     justify-content: center;
 }
 
-.wrapper img{
+.wrapper-enjoyable img, .wrapper-locally-sourced img, .wrapper-slider img{
     max-width: 500px;
     margin-top: -2.5rem;
+    box-shadow: var(--card-shadow);
+    z-index: 3; 
+    position: relative;
 }
 
 .wrapper .text{
     align-self: center;
     max-width: 400px;
 }
+
 
 .wrapper .text h2{
     font-size: 2.5rem;
@@ -38,4 +42,103 @@
 .container-white-bg{
     background: var(--color-white);
     color: var(--color-cod-gray);
+    padding-bottom: 8rem;
+}
+
+.container{
+    position: relative;
+}
+
+.container-enjoyable::after{
+    content: url('./images/patterns/pattern-curve-top-right.svg');
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 60%;
+    display: block;
+}
+
+.wrapper .text::before{
+    content: url('./images/patterns/pattern-divide.svg');
+    position: relative;
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.wrapper-locally-sourced{
+    position: relative;
+}
+
+.container-locally-sourced::after{
+    content: url('./images/patterns/pattern-curve-top-left.svg');
+    position: absolute;
+    top: 30%;
+    right: 0;
+    /* width: 60%; */
+    display: block;
+}
+
+.wrapper-locally-sourced::after{
+    content: url('./images/patterns/pattern-lines.svg');
+    position: absolute;
+    top: 30%;
+    right: 0.001rem;
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.menu-list{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.menu__list-item{
+    display: flex;
+}
+.menu__list-item{
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+
+.menu__list-item img{
+    width: 100%;
+    object-fit: fill;
+    aspect-ratio: 1;
+    max-width: 128px;
+    z-index: 3;
+    position: relative;
+}
+
+.menu__list-item .text_wrapper h3{
+    margin-bottom: 1rem; 
+}
+
+.menu__list-item .text_wrapper p{
+    line-height: 1.5rem;
+}
+
+.wrapper-menu-list{
+    padding: 6rem ;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu__list-item .img_wrapper {
+    position: relative;
+}
+
+.menu__list-item .img_wrapper::after{
+    position: absolute;
+    content: url('./images/patterns/pattern-divide.svg');
+    top: 10px;
+    right: -20px;
+    z-index: 0;
+}
+
+.tabs_wrapper{
+    display: flex;
+    width: 100%;
 }

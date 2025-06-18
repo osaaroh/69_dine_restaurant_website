@@ -1,4 +1,5 @@
 import About from '../components/About'
+import Booking from '../components/Reservation'
 import Hero from '../components/Hero'
 
 function Home() {
@@ -6,6 +7,7 @@ function Home() {
     <>
         <Hero />
         <About />
+        <Booking />
     </>
   )
 }

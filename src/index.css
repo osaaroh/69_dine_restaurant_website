@@ -52,3 +52,16 @@ body {
   display: flex;
   justify-content: center;
 }
+
+button {
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  font-weight: var(--weight-light);
+  /* color: var(--color-white); */
+  padding: 1.35rem 2.35rem;
+  /* border: 1px solid var(--color-white); */
+  /* background: none; */
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all var(--transition);
+}
