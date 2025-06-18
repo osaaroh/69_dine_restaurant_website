@@ -43,7 +43,7 @@
     color: var(--color-ebony-clay);
 }
 
-.tab-link__wrapper::before{
+.tab-link__wrapper.active:before{
     content: url('./images/patterns/pattern-divide.svg');
     position: absolute;
     top: 0;
@@ -57,3 +57,48 @@
 .tab-link__wrapper{
     position: relative;
 }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.wrapper-slider img.fadeIn{
+    margin-top: unset;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.wrapper-slider .img{
+    position: relative;
+}
+.wrapper-slider .img:before{
+    content: url('./images/patterns/pattern-lines.svg');
+    position: absolute;
+    top: -6.5%;
+    left: -10%;
+    display: block;
+    margin-bottom: 2rem;
+    z-index: 4;
+}
+
+.wrapper-slider{
+    margin-top: 4rem;
+}
+
+.container-slider{
+    padding: 4rem 0;
+}
+
+.container-slider::after {
+    content: url('./images/patterns/pattern-curve-top-right.svg');
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40;
+    display: block;
+}
+
