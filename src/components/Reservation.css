@@ -1,0 +1,27 @@
+.wrapper-reservation{
+    padding: 4rem;
+    justify-content: space-between;
+}
+.wrapper-reservation h2{
+    font-size: 2.5rem;
+}
+
+.wrapper-reservation button {
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
+  background: none;
+}
+.wrapper-reservation button:hover {
+  background-color: var(--color-white);
+    color: var(--color-cod-gray);
+}
+.wrapper-reservation button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-beaver);
+}
+
+.container-reservation{
+    background-image: url('./images/homepage/ready-bg-desktop@2x.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}

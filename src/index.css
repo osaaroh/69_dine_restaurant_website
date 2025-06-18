@@ -43,7 +43,7 @@ body {
   color: var(--color-white);
 }
 
-.wrapper{
+.wrapper, .wrapper_flex{
     max-width: 1200px;
     padding: 0 4rem;
 }
