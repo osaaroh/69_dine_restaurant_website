@@ -2,6 +2,13 @@
     padding: 4rem;
     justify-content: space-between;
 }
+
+@media screen and (max-width: 960px) {
+    .wrapper-reservation{
+        flex-direction: column;
+    }
+}
+
 .wrapper-reservation h2{
     font-size: 2.5rem;
 }

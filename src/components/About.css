@@ -6,6 +6,16 @@
     padding-bottom: 4rem;
 }
 
+@media screen and (max-width: 960px) {
+    .wrapper{
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        gap: 2rem;
+        padding-bottom: 2.5rem;
+    }
+}
+
 .wrapper_flex{
     display: flex;
     align-items: center;
@@ -20,9 +30,27 @@
     position: relative;
 }
 
+
+@media screen and (max-width: 960px) {
+        .wrapper-enjoyable img, .wrapper-locally-sourced img, .wrapper-slider img{
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+
 .wrapper .text{
     align-self: center;
     max-width: 400px;
+}
+
+@media screen and (max-width: 960px) {
+    .wrapper .text{
+    align-self: center;
+    justify-self: center;
+    max-width: 60%;
+    text-align: center;
+}
 }
 
 
@@ -58,6 +86,20 @@
     display: block;
 }
 
+@media screen and (max-width: 960px) {
+    .container-enjoyable::after {
+    content: ''; /* Must be present, but can be empty */
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 60%; /* This will define the area the background image occupies */
+    height: 100px; /* Give it a height so the background image has space */
+    background-image: url('./images/patterns/pattern-curve-top-right.svg');
+    background-repeat: no-repeat;
+    background-size: contain; /* Or 'cover', '100% auto', 'auto 100%', etc. */
+    /* background-size: 100% 100%; will stretch to fill the width and height of the pseudo-element */
+}}
+
 .wrapper .text::before{
     content: url('./images/patterns/pattern-divide.svg');
     position: relative;
@@ -78,6 +120,22 @@
     display: block;
 }
 
+@media screen and (max-width: 960px) {
+    .container-locally-sourced::after {
+    content: '';
+    position: absolute;
+    top: 30%;
+    right: 0;
+    /* width: 60%; */
+
+    width: 60%; /* This will define the area the background image occupies */
+    height: 100px; /* Give it a height so the background image has space */
+    background-image: url('./images/patterns/pattern-curve-top-right.svg');
+    background-repeat: no-repeat;
+    background-size: contain; /* Or 'cover', '100% auto', 'auto 100%', etc. */
+    /* background-size: 100% 100%; will stretch to fill the width and height of the pseudo-element */
+}}
+
 .wrapper-locally-sourced::after{
     content: url('./images/patterns/pattern-lines.svg');
     position: absolute;
@@ -85,6 +143,12 @@
     right: 0.001rem;
     display: block;
     margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 960px) {
+    .wrapper-locally-sourced .text{
+        order: 1;
+    }
 }
 
 .menu-list{

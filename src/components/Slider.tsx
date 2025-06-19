@@ -32,9 +32,12 @@ function Slider() {
                 </div>
                 
                 <div className="text">
-                    <h2>{SliderContent[currentIndex].title}</h2>
-                    <p>{SliderContent[currentIndex].content}</p>
-                    <button type="button">Book a Table</button>
+                    <div className="text_content">
+                        <h2>{SliderContent[currentIndex].title}</h2>
+                        <p>{SliderContent[currentIndex].content}</p>
+                        <button type="button">Book a Table</button>
+                    </div>
+                    
 
                     <div className="tabs_wrapper">
                         <div className="tabs">

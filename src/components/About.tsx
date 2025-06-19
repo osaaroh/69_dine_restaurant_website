@@ -7,7 +7,10 @@ function About() {
     <div className="container container-white-bg container-enjoyable">
         <div className="wrapper wrapper-enjoyable">
             <div className="img">
-                <img src="/images/homepage/enjoyable-place-desktop@2x.jpg" alt="" />
+                <picture >
+                    <source srcSet="/images/homepage/enjoyable-place-tablet@2x.jpg" media="(max-width: 960px)" className="source-img"/>
+                    <img src="/images/homepage/enjoyable-place-desktop@2x.jpg" alt="image mockups"/>
+                </picture>
             </div>
             
             <div className="text">
@@ -23,7 +26,10 @@ function About() {
                 <p>All our ingredients come directly from our farm or local fishery. So you can be sure that you’re eating the freshest, most sustainable food..</p>
             </div>
             <div className="img">
-                <img src="/images/homepage/locally-sourced-desktop@2x.jpg" alt="" />
+                <picture >
+                    <source srcSet="/images/homepage/locally-sourced-tablet@2x.jpg" media="(max-width: 960px)" className="source-img"/>
+                    <img src="/images/homepage/locally-sourced-desktop@2x.jpg" alt="image mockups"/>
+                </picture>
             </div>
         </div>
     </div>

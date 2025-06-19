@@ -7,6 +7,13 @@ min-height: 100vh;
 display: flex;
 justify-content: center;}
 
+@media screen and (max-width: 960px) {
+  .hero {
+    background-image: url('./images/homepage/hero-bg-tablet@2x.jpg');
+    background-size: cover;
+  }
+}
+
 nav, .hero-container{
     max-width: 1200px;
     display: flex;
@@ -27,6 +34,19 @@ nav{
     flex-direction: column;
 }
 
+@media screen and (max-width: 960px) {
+  .hero-container {
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .hero-container__section{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
 .hero-container h1 {
   font-size: 4rem;
     font-weight: var(--weight-light);
@@ -40,11 +60,34 @@ nav{
 
 .hero-container h1,
 .hero-container p {
-  line-height: 1.5;
+  line-height: 1.8;
 }
 
 .hero-container__text{
+    max-width: 45%;
+}
+
+@media screen and (max-width: 960px) {
+  .hero-container h1 {
+  font-size: 3rem;
+    font-weight: var(--weight-light);
+  margin-bottom: 0.25rem;
+}
+.hero-container p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: var(--weight-light);
+}
+
+.hero-container h1,
+.hero-container p {
+  line-height: 1.25;
+}
+
+  .hero-container__text{
     max-width: 60%;
+}
+
 }
 
 .hero-container button {
