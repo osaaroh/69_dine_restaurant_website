@@ -65,6 +65,7 @@
 .tab-link__wrapper a{
     text-decoration: none;
     color: var(--color-shuttle-gray);
+    letter-spacing: 0.15rem;
 }
 
 .tab-link__wrapper a:hover, .tab-link__wrapper a:active{

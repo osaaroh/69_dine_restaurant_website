@@ -72,17 +72,15 @@ nav{
   font-size: 3rem;
     font-weight: var(--weight-light);
   margin-bottom: 0.25rem;
+  line-height: 1.25;
 }
+
 .hero-container p {
   font-size: 1rem;
   margin-bottom: 1rem;
-  font-weight: var(--weight-light);
+  line-height: 1.85rem;
 }
 
-.hero-container h1,
-.hero-container p {
-  line-height: 1.25;
-}
 
   .hero-container__text{
     max-width: 60%;
