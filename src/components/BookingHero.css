@@ -14,6 +14,46 @@ justify-content: center;}
   }
 }
 
+.hero.booking .hero-container__section{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+
+.hero.booking .hero-container__section .hero-container__text{
+  max-width: unset;
+}
+
+.reservation__form{
+  background: var(--color-white);
+  color: var(--color-cod-gray);
+  padding: 2rem;
+}
+
+.input-wrapper input{
+  width: 100%;
+  padding: 1rem 0.5rem;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+#submit-button {
+    margin-top: 2rem;
+    color: var(--color-white);
+    border: 1px solid var(--color-cod-gray);
+    background: var(--color-cod-gray);
+    width: 100%;
+}
+#submit-button:hover {
+    background-color: var(--color-white);
+    color: var(--color-cod-gray);
+}
+#submit-button:focus {
+    outline: var(--color-cod-gray);
+    box-shadow: 0 0 0 2px var(--color-beaver);
+}
+
 nav, .hero-container{
     max-width: 1200px;
     display: flex;
@@ -63,9 +103,6 @@ nav{
   line-height: 1.8;
 }
 
-.hero-container__text{
-    max-width: 45%;
-}
 
 @media screen and (max-width: 960px) {
   .hero-container h1 {
@@ -86,18 +123,4 @@ nav{
     max-width: 60%;
 }
 
-}
-
-.hero-container button {
-  color: var(--color-white);
-  border: 1px solid var(--color-white);
-  background: none;
-}
-.hero-container button:hover {
-  background-color: var(--color-white);
-    color: var(--color-cod-gray);
-}
-.hero-container button:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--color-beaver);
 }
