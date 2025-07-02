@@ -7,36 +7,128 @@ min-height: 70vh;
 display: flex;
 justify-content: center;}
 
-@media screen and (max-width: 960px) {
-  .hero {
+@media screen and (max-width: 1105px) {
+  .hero.booking {
     background-image: url('./images/booking/hero-bg-tablet@2x.jpg');
     background-size: cover;
   }
 }
+
+.visible{
+    visibility: visible;
+  }
+
+  .hide{
+    visibility: hidden;
+  }
 
 .hero.booking .hero-container__section{
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-
 .hero.booking .hero-container__section .hero-container__text{
   max-width: unset;
+  
+}
+
+@media screen and (max-width: 1105px) {
+  .hero.booking .hero-container__section  {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  
+
+ .hero.booking .hero-container__section .hero-container__text {
+    max-width: 750px;
+    justify-self: center;
+}
+    .hero.booking .hero-container__text p, .hero.booking .hero-container h1{
+      text-align: center;
+    }
+
+  .hero.booking .hero-container__text p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.85rem;
+}
+
+  .hero.booking .hero-container h1 {
+      font-size: 3rem;
+      font-weight: var(--weight-light);
+      margin-bottom: 0.25rem;
+      line-height: 1.25;
+  }
 }
 
 .reservation__form{
   background: var(--color-white);
   color: var(--color-cod-gray);
   padding: 2rem;
+  margin-bottom: -15rem;
+  position: relative;
+  z-index: 5;
+  box-shadow: var(--card-shadow);
 }
 
-.input-wrapper input{
+
+@media screen and (max-width: 1105px) {
+    .reservation__form{
+    max-width: 600px;
+    align-self: center;
+    justify-self: center;
+    text-align: start;
+  }
+}
+
+@media screen and (max-width: 600px) {
+    .reservation__form{
+    width: 100%;
+    max-width: 400px;
+  }
+  .form-legend .form-fields {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    justify-content: space-between;
+}
+}
+
+.error p {
+  font-size: 0.9rem;
+}
+
+.input-wrapper input, .input-wrapper select{
   width: 100%;
   padding: 1rem 0.5rem;
   outline: none;
   border: none;
   border-bottom: 1px solid black;
 }
+
+.form__number-picker{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  border-bottom: 1px solid black;
+}
+
+.screen-reader-only {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(0px 0px 99.9% 99.9%);
+    padding: 0px;
+    overflow: hidden;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+}
+
 
 #submit-button {
     margin-top: 2rem;
@@ -54,73 +146,159 @@ justify-content: center;}
     box-shadow: 0 0 0 2px var(--color-beaver);
 }
 
-nav, .hero-container{
-    max-width: 1200px;
+.form-legend .form-group{
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+}
+
+.form-legend .form-group{
+  display: flex;
+  justify-content: space-between;
+}
+.form-legend .form-fields{
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+}
+
+.form-legend .form-group .input-group input{
+  text-align: center;
+  font-size: 1.25rem;
+  max-width: 80px;
+}
+
+.form-legend .form-group .input-group select{
+  text-align: center;
+  font-size: 1.25rem;
+  max-width: 80px;
+  width: 80px
+}
+.form-legend .form-group .input-group p{
+  margin-bottom: unset;
+}
+.form-legend .form-group .input-group .error p{
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 600px) {
+    .form-legend__time .form-group, .form-legend__date .form-group{
     display: flex;
-    width: 100%;
-}
-
-nav{
-    justify-content: flex-start;
-    margin: 4rem 0;
-}
-
-.hero-container{
-    color: var(--color-white);
-    margin: 10rem 0 2rem 0;
-    padding: 0 4rem 4rem 4rem;
-}
-.hero-container {
     flex-direction: column;
-}
-
-@media screen and (max-width: 960px) {
-  .hero-container {
-    align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
 
-  .hero-container__section{
+  .form-legend__time{
+    margin-top: 1rem;
+  }
+
+
+  .form-legend .form-fields {
     display: flex;
-    justify-content: center;
-    text-align: center;
+    flex-direction: row;
+    gap: 0.75rem;
+    justify-content: space-between;
   }
+
 }
 
-.hero-container h1 {
-  font-size: 4rem;
+.number-picker__button {
+  background: none;
+  border: none;
+}
+
+#number-of-people{
+  font-weight: 600;
+  margin-bottom: unset;
+}
+
+.dropdown {
+    opacity: 0.95;
+    /* padding-left: 1.6rem;
+    padding-bottom: 1.6rem; */
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    border-bottom: 1px solid var(--color-cod-gray);
+    transition: var(--transition) opacity;
+    max-width: 80px;
+}
+
+.dropdown__selected {
     font-weight: var(--weight-light);
-  margin-bottom: 0.5rem;
-}
-.hero-container p {
-  font-size: 1.4rem;
-  margin-bottom: 1.5rem;
-  font-weight: var(--weight-light);
+    font-size: 1.8rem;
+    line-height: 1.556;
+    letter-spacing: -0.22px;
+    color: var(--color-cod-gray);
 }
 
-.hero-container h1,
-.hero-container p {
-  line-height: 1.8;
+.dropdown__arrow {
+    transition: var(--transition) transform;
 }
 
 
-@media screen and (max-width: 960px) {
-  .hero-container h1 {
-  font-size: 3rem;
-    font-weight: var(--weight-light);
-  margin-bottom: 0.25rem;
-  line-height: 1.25;
-}
-
-.hero-container p {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  line-height: 1.85rem;
+.dropdown__arrow {
+        margin-left: 1.5rem;
+    }
+.dropdown-container{
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
 }
 
 
-  .hero-container__text{
-    max-width: 60%;
+.dropdown__items {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-white);
+    box-shadow: rgba(56, 66, 85, 0.25) 0px 1.5rem 2.5rem;
+    transform: translate(-1.6rem, 9rem);
+    padding: 1rem;
 }
 
+.dropdown__items.open {
+    display: block;
+}
+
+.dropdown__item:not(:last-child){
+    margin-bottom: 0.65rem;
+}
+
+.dropdown__item p{
+    margin-bottom: unset;
+}
+
+
+.dropdown__item {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.dropdown__item__checkmark.checked {
+    opacity: 1;
+}
+
+.dropdown__item__checkmark {
+    margin-right: 1.557rem;
+    opacity: 0;
+}
+/* /older classes  */
+
+
+.errorInput{
+  color: red !important;
+  border-bottom: 1px solid red !important;
+}
+
+.error{
+  color: red !important;
 }
