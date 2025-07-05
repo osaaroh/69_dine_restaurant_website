@@ -31,7 +31,7 @@ function BookingHero() {
   year: string;
   hour: string;
   minute: string;
-  numOfPeople: number;
+  numberOfPeople: number;
 }
 
   const [formData, setFormData] = useState<FormData>({
@@ -42,7 +42,7 @@ function BookingHero() {
     year: '',
     hour: '',
     minute: '',
-    numOfPeople: 1
+    numberOfPeople: 1
   });
 
 
@@ -51,6 +51,12 @@ function BookingHero() {
     setFormData(prevData => ({
       ...prevData,
       [name]: value,
+    }));
+  };
+  const handleNumOfPeopleChange = () => {
+    setFormData(prevData => ({
+      ...prevData,
+      numberOfPeople: numOfPeople,
     }));
   };
 
@@ -269,7 +275,7 @@ function BookingHero() {
                         setDropdownStateOpen(!dropdownStateOpen)
                       }}>
                         <div id="selected-meridiem" className="dropdown__selected">{time}</div>
-                        <div className="dropdown__arrow" id="dropdown-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="11"><path fill="none" stroke="#9E7F66" stroke-width="2" d="M1 1l8 8 8-8"></path></svg>
+                        <div className="dropdown__arrow" id="dropdown-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="11"><path fill="none" stroke="#9E7F66" strokeWidth="2" d="M1 1l8 8 8-8"></path></svg>
                         </div>
                         <div className={`dropdown__items ${dropdownStateOpen?'open':''}`} id="dropdown-menu">
                           <div className="dropdown__item" onClick={()=>setTime('AM')}>
@@ -288,12 +294,19 @@ function BookingHero() {
                 </div>
 
                 <div className="form-group form__number-picker">
-                  <button className="number-picker__button" id="minus" onClick={()=>decrementNumOfPeople()}>
+                  <button type='button' className="number-picker__button" id="minus" onClick={()=>{
+                      decrementNumOfPeople();
+                      handleNumOfPeopleChange();
+                    }
+                    }>
                     <span className="screen-reader-only">minus</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="7" height="3"><path fill="#9E7F66" d="M6.425 2.977V.601H.629v2.376z"></path></svg>
                   </button>
                   <p id="number-of-people"><span>{numOfPeople}</span> {numOfPeople>1?'people':'person'}</p>
-                  <button className="number-picker__button" id="plus" onClick={()=>incrementNumOfPeople()}>
+                  <button type='button' className="number-picker__button" id="plus" onClick={()=>{
+                    incrementNumOfPeople();
+                    handleNumOfPeopleChange();
+                    }}>
                     <span className="screen-reader-only">plus</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="10" height="11"><path fill="#9E7F66" d="M6.227 10.156V6.727h3.429V4.342H6.227V.913H3.842v3.429H.413v2.385h3.429v3.429z"></path></svg>
                   </button>
