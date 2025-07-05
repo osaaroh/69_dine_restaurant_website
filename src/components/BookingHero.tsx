@@ -2,6 +2,8 @@ import Footer from './Footer'
 import Navbar from './Navbar'
 import './BookingHero.css'
 import { useState } from 'react'
+
+//const ReservationForm: React.FC = () => {
 function BookingHero() {
   const [dropdownStateOpen, setDropdownStateOpen] = useState(false);
   const [numOfPeople, setNumOfPeople] = useState(1);
@@ -12,15 +14,106 @@ function BookingHero() {
   const [dayError, setDayError] = useState(false);
   const [monthError, setMonthError] = useState(false);
   const [yearError, setYearError] = useState(false);
+  const [hourError, setHourError] = useState(false);
+  const [minuteError, setMinuteError] = useState(false);
+  const [timeError, setTimeError] = useState(false);
   const incrementNumOfPeople=()=>{
     numOfPeople<100?setNumOfPeople(prev=>prev+1):100
   }
   const decrementNumOfPeople=()=>{
     numOfPeople>1?setNumOfPeople(prev=>prev-1):1
   }
-  const checkErrors = () =>{
+  interface FormData {
+  fullname: string;
+  emailAddress: string;
+  month: string;
+  day: string;
+  year: string;
+  hour: string;
+  minute: string;
+  numOfPeople: number;
+}
 
-  }
+  const [formData, setFormData] = useState<FormData>({
+    fullname: '',
+    emailAddress: '',
+    month: '',
+    day: '',
+    year: '',
+    hour: '',
+    minute: '',
+    numOfPeople: 1
+  });
+
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prevData => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Reset all errors
+    setNameError(false);
+    setEmailError(false);
+    setMonthError(false);
+    setDayError(false);
+    setYearError(false);
+    setDateError(false);
+    setTimeError(false);
+    setHourError(false);
+    setMinuteError(false);
+
+
+    let hasError = false;
+
+    if (!formData.fullname) {
+      setNameError(true);
+      hasError = true;
+    }
+    if (!formData.emailAddress) {
+      setEmailError(true);
+      hasError = true;
+    }
+    if (!formData.month) {
+      setMonthError(true);
+      hasError = true;
+    }
+    if (!formData.day) {
+      setDayError(true);
+      hasError = true;
+    }
+    if (!formData.year) {
+      setYearError(true);
+      hasError = true;
+    }
+    if (!formData.day || !formData.month || !formData.year) {
+      setDateError(true);
+      hasError = true;
+    }
+    if (!formData.hour) {
+      setHourError(true);
+      hasError = true;
+    }
+    if (!formData.minute) {
+      setMinuteError(true);
+      hasError = true;
+    }
+
+    if (!formData.hour || !formData.minute) {
+      setTimeError(true);
+      hasError = true;
+    }
+
+    if (!hasError) {
+      console.log('Form Submitted!', formData);
+      // Here you would typically send data to an API
+    }
+  };
   return (
     
 <>
@@ -34,42 +127,15 @@ function BookingHero() {
             </div>
             <form className="reservation__form" name='reservation__form' onSubmit={(e)=>{
               e.preventDefault();
-              const form = e.currentTarget;
-              const formData = new FormData(form);
-              !formData.get('fullname')? setNameError(true):'';
-              !formData.get('email-address')? setEmailError(true):'';
-              !formData.get('month')? setMonthError(true):'';
-              console.log(formData.get('month'));
-              if (!formData.get('day') || !formData.get('month') || !formData.get('year')) {
-                setDateError(true);
-              } else {
-                setDateError(false);
-              }
-
-              if (!formData.get('day')) {
-                  setDayError(true); 
-              } else {
-                setDayError(false);
-              }
-              if (!formData.get('month')) {
-                setMonthError(true);
-              }else {
-                setMonthError(false);
-              }
-              if (!formData.get('year')) {
-                setYearError(true);
-              }else {
-                setYearError(false);
-              }
-
-            }
-              
-              
-              }>
+              handleSubmit(e);
+            }}
+              >
                 <div className="form-group">
             {/* <label htmlFor="fullname">Full Name</label> */}
             <span className="input-wrapper">
-              <input type="text" id="fullname" name="fullname" placeholder='Name' className={`${nameError?'errorInput':''}`}/>
+              <input type="text" id="fullname" name="fullname" placeholder='Name' className={`${nameError?'errorInput':''}`}
+              value={formData.fullname}
+              onChange={handleChange}/>
             </span>
             <span className="error">
               <p className={`${nameError?'visible':'hide'}`}>This field is required</p>
@@ -79,11 +145,14 @@ function BookingHero() {
                   {/* <label htmlFor="email-address">Email Address</label> */}
                   <span className="input-wrapper">
                     <input
-                      type="text"
-                      id="email-address"
-                      name="email-address"
+                      type="email"
+                      id="emailAddress"
+                      name="emailAddress"
                       placeholder="Email"
                       className={`${emailError?'errorInput':''}`}
+                      onChange={handleChange}
+                      value={formData.emailAddress}
+                      
                     />
                   </span>
                   <span className="error">
@@ -111,6 +180,8 @@ function BookingHero() {
                           placeholder="MM"
                           maxLength={2}
                           className={`${monthError?'errorInput':''}`}
+                          value={formData.month}
+                          onChange={handleChange}
                         />
                       </span>
                     </div>
@@ -123,6 +194,8 @@ function BookingHero() {
                           placeholder="DD"
                           maxLength={2}
                           className={`${dayError?'errorInput':''}`}
+                          value={formData.day}
+                          onChange={handleChange}
                         />
                       </span>
                     </div>
@@ -135,6 +208,8 @@ function BookingHero() {
                           placeholder="YYYY"
                           maxLength={4}
                           className={`${yearError?'errorInput':''}`}
+                          value={formData.year}
+                          onChange={handleChange}
                         />
                       </span>
                     </div>
@@ -149,7 +224,7 @@ function BookingHero() {
                         <p>Pick a time</p>
                       </span>
                       <span className="error">
-                        <p>This field is incomplete</p>
+                        <p className={`${timeError?'visible':'hide'}`}>This field is incomplete</p>
                       </span>
                     </div>
                     <div className="form-fields">
@@ -161,6 +236,9 @@ function BookingHero() {
                           name="hour"
                           placeholder="09"
                           maxLength={2}
+                          value={formData.hour}
+                          onChange={handleChange}
+                          className={`${hourError?'errorInput':''}`}
                         />
                       </span>
                     </div>
@@ -172,6 +250,9 @@ function BookingHero() {
                           name='minute'
                           placeholder="00"
                           maxLength={2}
+                          value={formData.minute}
+                          onChange={handleChange}
+                          className={`${minuteError?'errorInput':''}`}
                         />
                       </span>
                     </div>
