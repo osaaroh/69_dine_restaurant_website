@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import './Slider.css';
+import { Link } from 'react-router-dom';
 
 function Slider() {
     interface SliderItem {
@@ -35,7 +36,7 @@ function Slider() {
                     <div className="text_content">
                         <h2>{SliderContent[currentIndex].title}</h2>
                         <p>{SliderContent[currentIndex].content}</p>
-                        <button type="button">Book a Table</button>
+                        <Link to='/booking'> <button className="cta-button">Book a Table</button></Link>
                     </div>
                     
 
