@@ -1,7 +1,7 @@
 import Footer from './Footer'
 import Navbar from './Navbar'
 import './BookingHero.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 //const ReservationForm: React.FC = () => {
 function BookingHero() {
@@ -17,6 +17,7 @@ function BookingHero() {
   const [hourError, setHourError] = useState(false);
   const [minuteError, setMinuteError] = useState(false);
   const [timeError, setTimeError] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
   const incrementNumOfPeople=()=>{
     numOfPeople<100?setNumOfPeople(prev=>prev+1):100
   }
@@ -117,9 +118,14 @@ function BookingHero() {
 
     if (!hasError) {
       console.log('Form Submitted!', formData);
+      setFormSubmitted(true);
       // Here you would typically send data to an API
     }
   };
+
+  useEffect(()=>{
+    setNumOfPeople(numOfPeople);
+  },[numOfPeople])
   return (
     
 <>
@@ -131,7 +137,7 @@ function BookingHero() {
                 <h1>Reservations</h1>
             <p>We can’t wait to host you. If you have any special requirements please feel free to call on the phone number below. We’ll be happy to accommodate you.</p>
             </div>
-            <form className="reservation__form" name='reservation__form' onSubmit={(e)=>{
+            {!formSubmitted && <form className="reservation__form" name='reservation__form' onSubmit={(e)=>{
               e.preventDefault();
               handleSubmit(e);
             }}
@@ -319,7 +325,17 @@ function BookingHero() {
                     </button>
                   </label>
                 </div>
-            </form>
+            </form>}
+            {formSubmitted && <div className='submit__success'>
+              <p>Reservation has been booked successfully</p>
+              <div className="form-group">
+                  <label htmlFor="submit-button" className="input-wrapper button-wrapper">
+                    <button id="submit-button"  type="submit" onClick={()=>setFormSubmitted(false)}>
+                      New Reservation
+                    </button>
+                  </label>
+              </div>
+            </div>}
         </section>
       </div>
     </div>

@@ -302,3 +302,9 @@ justify-content: center;}
 .error{
   color: red !important;
 }
+
+.submit__success{
+  background: white;
+  padding: 2rem;
+  color: var(--color-cod-gray);
+}
